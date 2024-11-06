@@ -221,4 +221,49 @@ JPA는 영속성 컨텍스트의 동일성을 보장하기 때문에, DB의 결�
   
 **JPQL을 실행할 때 사실 모든 내용을 다 플러시 하는 것이 아니라, 해당 JPQL과 관련 있는 엔티티만 플러시한다.**  
 
+## 엔티티 매핑
+객체와 테이블 매핑 : @Entity, @Table  
+필드와 컬럼 매핑 : @Column  
+기본 키 매핑 : @Id 연관관계 매핑 : @ManyToOne,@JoinColumn  
+
+**<테이블 관련>**  
+**@Entity ** 
+@Entity가 붙은 클래스는 JPA가 관리, 엔티티라 한다.  
+JPA를 사용해서 테이블과 매핑할 클래스는 @Entity 필수  
+@Entity 클래스는 엔티티나 @MappedSuperclass로 지정한 클래스만 상속 가능  
+
+**주의사항**  
+* 기본 생성자 필수(파라미터가 없는 public 또는 protected 생성자) 
+* final 클래스, enum, interface, inner 클래스에서는 사용 불가
+* 저장할 필드에 final 사용 불가
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
