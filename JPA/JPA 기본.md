@@ -1,20 +1,25 @@
 ## JPA(ORM 프레임워크)
 ![스크린샷 2022-11-18 오후 1 21 29](https://github.com/user-attachments/assets/fc75389e-5c58-43cf-af05-eedf5e1da5dc)
+
 객체는 객체대로, 관계형 데이터베이스는 관계형 데이터베이스대로 각각의 패러다임에 맞게 설계  
 ORM 프레임워크는 중간에서 매핑해주는 역할을 한다.  
-
+<br>
+<br>
 ## JPA 표준 명세
 ![스크린샷 2022-11-18 오후 1 30 23](https://github.com/user-attachments/assets/d45152c9-ebf6-4a65-b356-c277faf56be0)
+
 JPA는 표준 인터페이스로 Hibernate, EclipseLink, DataNucleus 등 구현체를 적용할 수 있지만, 80%는 하이버네이트를 사용한다.  
 객체지향적인 코드로 데이터베이스 관계형 데이터를 다루기 위해 사용한다.  
-
+<br>
+<br>
 ## JPA 동작 - 조회
 ![스크린샷 2022-11-18 오후 1 23 49](https://github.com/user-attachments/assets/f1e1768b-e65f-4888-a21c-c283ba02d529)
 find(id)를 통해 조회를 했다면,  
 1. JPA는 해당 엔티티를 분석한다.  
 2. 엔티티에 기반된 SELECT SQL을 생성한다.  
 3. JDBC API를 사용한다.  
-
+<br>
+<br>
 ### SQL 중심적인 개발의 단점
 SQL 중심적인 개발은 SQL에 의존적인 개발을 피하기 어렵다.  
 예를 들면 필드값이 변경되면 모든 SQL에서 변경된 필드값을 수정해줘야 한다. (실수로 변경을 안하면 문제가 발생한다.)  
