@@ -48,28 +48,34 @@ Serialize
 Json -> 객체 : DeSerialization
 객체 -> Json : Serialization —> 일반적으로 빈으로 등록하면 BeanSerializer 가 변환해준다. (Errors 같은건 변환할 수 없다.)
 
-커스텀 JSON Serializer 만들기 ● extends JsonSerializer<T> (Jackson JSON 제공) 
-● @JsonComponent (스프링 부트 제공) 
+**커스텀 JSON Serializer 만들기**  
 
-ObjectMapper 커스터마이징
-spring.jackson.deserialization.fail-on-unknown-properties=true (객체로 변환하면서 없는 데이터를 받았을 경우 에러를 준다. ex 객체는 test란 값이 없는데 test란 값이 json에 있을 경우)
+● extends JsonSerializer<T> (Jackson JSON 제공)  
+● @JsonComponent (스프링 부트 제공)  
+
+**ObjectMapper 커스터마이징**  
+spring.jackson.deserialization.fail-on-unknown-properties=true (객체로 변환하면서 없는 데이터를 받았을 경우 에러를 준다. ex 객체는 test란 값이 없는데 test란 값이 json에 있을 경우)  
 
 <br>
 
 **테스트**
 스프링 부트 슬라이스 테스트 
-@WebMvcTest 	○ MockMvc 빈을 자동 설정 해준다. 따라서 그냥 가져와서 쓰면 됨. 
-	○ 웹 관련 빈만 등록해 준다. (슬라이스) 
-MockMvc 	● 스프링 MVC 테스트 핵심 클래스 
-	● 웹 서버를 띄우지 않고도 스프링 MVC (DispatcherServlet)가 요청을 처리하는 과정을 확인할 수 있기 때문에 컨트롤러 테스트용으로 자주 쓰임. 
+@WebMvcTest  
+○ MockMvc 빈을 자동 설정 해준다. 따라서 그냥 가져와서 쓰면 됨.  
+○ 웹 관련 빈만 등록해 준다. (슬라이스)  
 
-@MockBean 	● Mockito를 사용해서 mock 객체를 만들고 빈으로 등록해 줌. 
-	● (주의) 기존 빈을 테스트용 빈이 대체 한다. 
-
-스프링 부트 통합 테스트 @WebMvcTest 빼고 다음 애노테이션 추가 
-	○ @SpringBootTest 
-	○ @AutoConfigureMockMvc 
-Repository @MockBean 코드 제거 
+MockMvc  
+● 스프링 MVC 테스트 핵심 클래스  
+● 웹 서버를 띄우지 않고도 스프링 MVC (DispatcherServlet)가 요청을 처리하는 과정을 확인할 수 있기 때문에 컨트롤러 테스트용으로 자주 쓰임.  
+  
+@MockBean  
+● Mockito를 사용해서 mock 객체를 만들고 빈으로 등록해 줌.  
+● (주의) 기존 빈을 테스트용 빈이 대체 한다.  
+  
+**스프링 부트 통합 테스트 @WebMvcTest 빼고 다음 애노테이션 추가**  
+○ @SpringBootTest  
+○ @AutoConfigureMockMvc  
+Repository @MockBean 코드 제거  
 
 **REST Docs 자동 설정** 
 @AutoConfigureRestDocs 
