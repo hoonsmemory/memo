@@ -1,5 +1,5 @@
 ### Practical Testing: 실용적인 테스트 가이드
-**코드** : [practice-testing-cafekiosk](https://github.com/hoonsmemory/practice-testing-cafekiosk)
+**구현 코드** : [practice-testing-cafekiosk](https://github.com/hoonsmemory/practice-testing-cafekiosk)
 <br>
 
 ### 더 나은 테스트를 작성하기 위한 구체적 조언 
