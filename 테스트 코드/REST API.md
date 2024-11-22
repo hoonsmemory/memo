@@ -1,5 +1,5 @@
 ## REST API
-**코드** : [rest-api-practice](https://github.com/hoonsmemory/rest-api-practice)
+**구현 코드** : [rest-api-practice](https://github.com/hoonsmemory/rest-api-practice)
 
 **아키텍쳐**
 * Client-Server
