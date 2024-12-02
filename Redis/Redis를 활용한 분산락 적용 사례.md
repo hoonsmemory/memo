@@ -103,8 +103,21 @@ public void deductStockQuantities(long productId, int quantity) {
 }
 ```
 따라서, 내가 선택한 방법은 재고 조회와 재고 차감 부분만 새로운 트랜잭션으로 관리하였고, 락을 반환하기 전 트랜잭션을 커밋할 수 있도록 하였다.  
+<br>
 
-
+**커넥션 풀 설정**  
+```java
+Spring:
+  hikari:
+    maximum-pool-size: 10     # 최대 커넥션 수
+    minimum-idle: 10          # 유휴 커넥션 수
+    connection-timeout: 30000 # 커넥션 요청 대기 시간(ms)
+    ...                       # 이하 생략
+```
+@Transactional(propagation = Propagation.REQUIRES_NEW)가 적용된 재고 차감 메서드는 구매할 상품의 id 개수만큼 실행이 된다.  
+따라서, 특정 이벤트가 있을 땐 반드시 성능 테스트를 통해 커넥션 풀 조절을 해야 한다.  
+나의 경우 별도의 재고 서버를 구현하여 재고 차감 API를 통해 재고가 차감될 수 있도록 구현하였다.  
+HTTP 통신으로 인해 레이턴시가 조금은 길어졌지만, 커넥션 개수 부족으로 인한 문제를 해결할 수 있었다.  
 
 
 
